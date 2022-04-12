@@ -1,0 +1,27 @@
+.profile-pic
+{
+    width: 70px;
+    height: 70px;
+}
+.ml-5
+{
+    margin-left: 1rem;
+}
+.bg-image{
+    width: 50px;
+    height: 50px;
+}
+.weather-card {
+    background-image: url(images/dawn.jpg);
+    background-size: cover;
+  }
+  
+  .air-quality-card {
+    background-image: url(images/cloud_sky.jpg);
+    background-size: cover;
+  }
+  .tomorrow-card {
+    background-image: url(images/rain.jpg);
+    background-size: cover;
+    color: aliceblue;
+  }

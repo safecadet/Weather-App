@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- Bootstrap4 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Custom -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font awsome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid" style="padding-right: 0">
+      <div class="row">
+        <aside
+          class="container pt-4 col-1 d-flex flex-column sidebar text-info"
+        >
+          <div class="row text-center container-fluid pb-4">
+            <div class="col container-fluid pb-2">
+              <i class="fas fa-wind" style="color: sandybrown"></i>
+            </div>
+            <p class="col h6" style="color: sandybrown">Weather</p>
+          </div>
+          <div class="row flex-column text-center text-secondary">
+            <div class="col py-3 sidebar-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <div class="col py-3 sidebar-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="col py-3 sidebar-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="col py-3 sidebar-icon">
+              <i class="fas fa-calendar-day"></i>
+            </div>
+            <div class="col py-3 sidebar-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+          </div>
+          <div class="row mt-auto text-secondary">
+            <div class="col pb-4 sidebar-icon">
+              <i class="fas fa-sign-out-alt"></i>
+            </div>
+          </div>
+        </aside>
+
+        <div class="col pt-4 px-4">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+              <div
+                class="
+                  mx-3
+                  d-flex
+                  align-items-center
+                  justify-content-centerbg-light
+                  rounded-circle
+                "
+                style="height: 2.5rem; width: 2.5rem"
+              >
+                <img
+                  class="profile-pic"
+                  src="images/profile.png"
+                  alt="profile pic"
+                />
+              </div>
+              <div class="ml-5">
+                <span>Hello,</span>
+                <h2>User</h2>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter a city..."
+                  id="searchbox"
+                />
+                <div class="input-group-append" id="search_btn">
+                  <span class="input-group-text text-warning">
+                    &nbsp;
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="
+                  mx-3
+                  px-3
+                  d-flex
+                  align-items-center
+                  justify-content-center
+                  border
+                  text-secondary
+                  rounded-circle
+                "
+                style="height: 2.5rem; width: 2.5rem"
+              >
+                <i class="fas fa-bell"></i>
+              </div>
+            </div>
+          </div>
+
+          <main>
+            <div class="d-flex">
+              <div class="container m-2 p-4 rounded-3 weather-card">
+                <div class="row pb-2 align-items-center">
+                  <div
+                    class="
+                      col-1
+                      px-3
+                      d-flex
+                      align-items-center
+                      justify-content-center
+                      bg-white
+                      text-warning
+                      rounded-circle
+                    "
+                    style="height: 2.5rem; width: 2.5rem"
+                  >
+                    <i class="fas fa-cloud-sun"></i>
+                  </div>
+
+                  <div class="col">
+                    <div class="h5">Weather</div>
+                    <small>What's the weather</small>
+                  </div>
+                </div>
+                <div class="row py-3">
+                  <div class="col">
+                    <div class="h3 current-temp">22&deg;C</div>
+                    <small><b class="weather-desc">Partly Cloud</b></small>
+                  </div>
+                </div>
+                <div class="row pt-3">
+                  <div
+                    class="
+                      col
+                      text-center
+                      py-2
+                      mx-2
+                      rounded-3
+                      bg-gradient
+                      text-white
+                    "
+                  >
+                    <div class="mb-1">
+                      <small>Max/Min</small>
+                    </div>
+                    <div class="h5 max-min">24&deg;/18&deg; C</div>
+                  </div>
+                  <div
+                    class="
+                      col
+                      text-center
+                      py-2
+                      mx-2
+                      rounded-3
+                      bg-success bg-gradient
+                      text-white
+                    "
+                  >
+                    <div class="mb-1">
+                      <small>Pressure</small>
+                    </div>
+                    <div class="h5 pressure">800mb</div>
+                  </div>
+                  <div
+                    class="
+                      col
+                      text-center
+                      py-2
+                      mx-2
+                      rounded-3
+                      bg-light bg-gradient
+                    "
+                  >
+                    <div class="mb-1">
+                      <small>precipitation</small>
+                    </div>
+                    <div class="h5 prec">7%</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="container m-2 p-4 rounded-3 text-white air-quality-card"
+              >
+                <div class="row pb-2 align-items-center">
+                  <div
+                    class="
+                      col-1
+                      px-3
+                      d-flex
+                      align-items-center
+                      justify-content-center
+                      bg-white
+                      text-warning
+                      rounded-circle
+                    "
+                    style="height: 2.5rem; width: 2.5rem"
+                  >
+                    <i class="fas fa-wind"></i>
+                  </div>
+
+                  <div class="col">
+                    <div class="h5">Air Quality</div>
+                    <small>Main Pollutant : PM 2.5</small>
+                  </div>
+                </div>
+                <div class="row py-3">
+                  <div class="col">
+                    <div class="h3 wind-speed">3m/s</div>
+
+                    <small><b class="wind-deg">80&deg; Wind</b></small>
+                  </div>
+                </div>
+                <div class="row pt-3">
+                  <div
+                    class="
+                      col
+                      text-center
+                      p-3
+                      mx-2
+                      rounded-3
+                      bg-white
+                      text-dark
+                    "
+                  >
+                    <div class="mb-2 d-flex justify-content-between">
+                      <div><small>Good</small></div>
+                      <div><small>Hazardous</small></div>
+                    </div>
+                    <div class="progress" style="height: 8px">
+                      <div
+                        class="progress-bar progress-bar-striped bg-warning"
+                        role="progressbar"
+                        style="width: 50%"
+                        aria-valuenow="50"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container mt-4">
+              <div class="row justify-content-between">
+                <div class="col-7 px-3">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="h4">How's the <br />temperature today?</p>
+                    </div>
+                    <div
+                      class="col d-flex align-items-start justify-content-end"
+                    >
+                      <div
+                        class="
+                          mx-1
+                          px-3
+                          d-flex
+                          align-items-center
+                          justify-content-center
+                          border
+                          text-secondary
+                          rounded-circle
+                        "
+                        style="height: 2.5rem; width: 2.5rem"
+                      >
+                        <i class="fas fa-thermometer-half"></i>
+                      </div>
+                      <div
+                        class="
+                          mx-1
+                          px-3
+                          d-flex
+                          align-items-center
+                          justify-content-center
+                          border
+                          text-secondary
+                          rounded-circle
+                        "
+                        style="height: 2.5rem; width: 2.5rem"
+                      >
+                        <i class="fas fa-umbrella"></i>
+                      </div>
+                      <div
+                        class="
+                          mx-1
+                          px-3
+                          d-flex
+                          align-items-center
+                          justify-content-center
+                          border
+                          text-secondary
+                          rounded-circle
+                        "
+                        style="height: 2.5rem; width: 2.5rem"
+                      >
+                        <i class="fas fa-wind"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- graph -->
+                  </div>
+                </div>
+                <div class="col-5 px-4">
+                  <div class="tomorrow-card p-4 rounded-3">
+                    <div class="d-flex flex-column justify-content-between">
+                      <div>
+                        <div class="mb-2"><small>Tomorrow</small></div>
+                        <div class="h4">Alam Barzah</div>
+                      </div>
+                      <br />
+                      <br />
+                      <br />
+                      <br />
+                      <div>
+                        <div class="h4">20&deg;C</div>
+                        <div><small>Rainy</small></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <div class="col-3">
+          <aside class="bg-light h-100 py-4 px-5 container">
+            <div class="row gx-0 justify-content-between align-items-center">
+              <div class="col">
+                <div class="h6 weather-main">Sun</div>
+                <small class="location">Banton, Indonesia</small>
+              </div>
+              <div class="col-3 text-end text-warning">
+                <h3 class="current-temp">22&deg;C</h3>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <!-- Sunset to Sunrise image -->
+            </div>
+            <div
+              class="
+                row
+                align-items-center
+                rounded-3
+                p-3
+                mb-4
+                text-white
+                bg-primary
+              "
+            >
+              <div class="col-2 text-warning" style="font-size: 2rem">
+                <i class="fas fa-sun"></i>
+              </div>
+              <div class="col">
+                <div class="h5 uvi">20 UVI</div>
+                <small class="h5 uvi_desc">Moderate risk of UV rays</small>
+              </div>
+            </div>
+            <div class="row flex-column gy-3">
+              <div class="col">
+                <h4>Weather Prediction</h4>
+              </div>
+              <div class="col">
+                <div class="row align-items-center rounded-3 p-3 bg-white">
+                  <div class="col-2 text-info" style="font-size: 2rem">
+                    <i class="fas fa-cloud"></i>
+                  </div>
+                  <div class="col">
+                    <small class="text-secondary">November 14</small>
+                    <div class="h5">Cloudy</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row align-items-center rounded-3 p-3 bg-white">
+                  <div class="col-2 text-warning" style="font-size: 2rem">
+                    <i class="fas fa-sun"></i>
+                  </div>
+                  <div class="col">
+                    <small class="text-secondary">November 15</small>
+                    <div class="h5">Bright</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
